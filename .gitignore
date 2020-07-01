@@ -11,7 +11,7 @@ tomcat
 *.jpg
 *.ls
 *.log
-
+*.gitignore
 
 # Binaries
 *.7z
