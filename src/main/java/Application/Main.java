@@ -15,7 +15,7 @@ public class Main {
 		ApplicationBuilder builder = new Builder();
 		applicationDirector.ConstructApplication(builder);
 		logger.info("Main started successfully");
-
+		
 	}
 
 }
