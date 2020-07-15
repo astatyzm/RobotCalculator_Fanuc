@@ -5,12 +5,12 @@
 	<groupId>RobotCalculator_Fanuc_TEST2</groupId>
 	<artifactId>RobotCalculator_Fanuc_TEST2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Check FANUC Stuff</name> 
+	<name>Check FANUC Stuff</name>
 	<description>astatyzm</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
- 
+
 	<dependencies>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -104,7 +104,7 @@
 							<jar>
 								${project.build.directory}/${project.artifactId}-${project.version}.jar
 							</jar>
-							<outfile>${project.build.directory}/RobotCalculator_Fanuc_TEST2.exe
+							<outfile>${project.build.directory}/RobotCalculator_Fanuc.exe
 							</outfile>
 							<downloadUrl>http://java.com/download</downloadUrl>
 							<classPath>
@@ -126,14 +126,14 @@
 								<productVersion>1.0.0.0</productVersion>
 								<txtProductVersion>1.0.0.0</txtProductVersion>
 								<productName>${project.name}</productName>
-								<companyName>RobotCalculator_Fanuc_TEST2.com</companyName>
-								<internalName>RobotCalculator_Fanuc_TEST2</internalName>
-								<originalFilename>RobotCalculator_Fanuc_TEST2.exe
+								<companyName>RobotCalculator_Fanuc.com</companyName>
+								<internalName>RobotCalculator_Fanuc</internalName>
+								<originalFilename>RobotCalculator_Fanuc.exe
 								</originalFilename>
 							</versionInfo>
 						</configuration>
 					</execution>
-				</executions> 
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
