@@ -9,7 +9,7 @@
 
 		<RollingFile name="RollingFile" filename="log/LogFile.log"
 			filepattern="${logPath}/%d{yyyyMMddHHmmss}-fargo.log">
-			<PatternLayout
+			<PatternLayout 
 				pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1}:%L - %msg%n" />
 			<Policies>
 				<SizeBasedTriggeringPolicy size="100 MB" />

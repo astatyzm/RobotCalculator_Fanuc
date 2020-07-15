@@ -37,7 +37,7 @@ public class CalcTest {
 		String reversedLS = Builder.reversePath(readedLSFile);
 		assertNotEquals(readedLSFile, reversedLS);
 	}
-
+ 
 	@Test(expected = Exception.class)
 	public void TestReadInputFile() {
 		try {
