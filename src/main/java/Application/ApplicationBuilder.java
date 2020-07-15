@@ -19,3 +19,4 @@ public interface ApplicationBuilder {
 
 	void buildFrame();
 }
+ 

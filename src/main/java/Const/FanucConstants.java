@@ -32,15 +32,7 @@ public interface FanucConstants {
 	final JCheckBox speedCheckBox = new JCheckBox(Descriptions.STRING_SPEED_CHECKBOX.displayString());
 	final JCheckBox zoneCheckBox = new JCheckBox(Descriptions.STRING_ZONE_CHECKBOX.displayString());
 
-	// dorzucone
-	// final static JFileChooser fileInPath = new JFileChooser();
-	// final static JTextField fileLoadedPath = new JTextField();
-	// final static Charset charset = StandardCharsets.UTF_8;
-	// final static FileNameExtensionFilter filter = new FileNameExtensionFilter("Ls
-	// files", "LS");
+
 	public static final String loadedFileName = "";
 	public static final Path path = Paths.get(loadedFileName);
-	// final Calendar expireDate = Calendar.getInstance();
-	// final SimpleDateFormat formatData = new SimpleDateFormat("yyyy-MM-dd");
-
 }

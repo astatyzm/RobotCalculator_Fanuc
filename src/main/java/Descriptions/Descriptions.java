@@ -18,7 +18,7 @@ public enum Descriptions {
 	STRING_EXECUT_REVERSE("Execute & Reverse"),
 	STRING_EXECUT_REVERSE_TOOL_TIP("Path mirror and save output"),
 	STRING_MESSAGE_WRONG_CONG("Wrong CONFIG in OLP.\n"),
-	STRING_MESSAGE_WRONG_SPEED("Wrong Speed in OLP.\n"),
+	STRING_MESSAGE_WRONG_SPEED("Wrong Speed in OLP.\n"), 
 	STRING_MESSAGE_WRONG_ZONE("Wrong Zones-approximations in OLP.\n"),
 	STRING_AUTHOR("Author: astatyzm"),
 	STRING_SIMPLE_DATE_FORMAT("yyyy-MM-dd"),

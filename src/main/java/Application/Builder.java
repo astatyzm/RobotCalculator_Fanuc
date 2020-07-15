@@ -35,7 +35,7 @@ import Descriptions.Descriptions;
 
 public class Builder implements ApplicationBuilder, FanucConstants {
 	// specific builder - implementation
-
+ 
 	static Logger logger = LoggerFactory.getLogger(Builder.class);
 
 	public static String pathToLoad = "";
