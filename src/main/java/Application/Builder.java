@@ -40,7 +40,7 @@ public class Builder implements ApplicationBuilder, FanucConstants {
 
 	public static String pathToLoad = "";
 	public static File fileIn = null;
-
+ 
 	// Maven
 	public static String readInputFile() {
 		logger.info("ReadInputFile method.");

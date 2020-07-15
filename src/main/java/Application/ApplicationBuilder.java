@@ -4,7 +4,7 @@ public interface ApplicationBuilder {
 	// builer - implementation interface
 
 	void loadSetImage();
-
+ 
 	void buildButtonsLayout();
 
 	void loadSetIcon();

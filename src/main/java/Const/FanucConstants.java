@@ -32,7 +32,6 @@ public interface FanucConstants {
 	final JCheckBox speedCheckBox = new JCheckBox(Descriptions.STRING_SPEED_CHECKBOX.displayString());
 	final JCheckBox zoneCheckBox = new JCheckBox(Descriptions.STRING_ZONE_CHECKBOX.displayString());
 
-
 	public static final String loadedFileName = "";
 	public static final Path path = Paths.get(loadedFileName);
 }

@@ -37,5 +37,4 @@ public enum Descriptions {
 	public String displayString() {
 		return stringValue;
 	}
-
 }

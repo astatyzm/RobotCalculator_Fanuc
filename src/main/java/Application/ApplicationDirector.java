@@ -12,7 +12,6 @@ public class ApplicationDirector {
 		builder.buildAuthorLabel();
 		builder.buildLicense();
 		builder.buildFrame();
-
 	}
 }
  

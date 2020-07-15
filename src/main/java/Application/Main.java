@@ -17,5 +17,4 @@ public class Main {
 		logger.info("Main started successfully");
 		
 	}
-
 } 
