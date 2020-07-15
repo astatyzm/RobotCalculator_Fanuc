@@ -26,6 +26,7 @@ tomcat
 *.ear
 *.sar
 *.class
+*.db
 
 # Maven 
 target/

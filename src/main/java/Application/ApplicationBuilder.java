@@ -1,22 +1,21 @@
 package Application;
 
 public interface ApplicationBuilder {
-	// budowniczy - interfejs implementacji
+	// builer - implementation interface
 
-	////
-	void LoadSetImage();
+	void loadSetImage();
 
-	void BuildButtonsLayout();
+	void buildButtonsLayout();
 
-	void LoadSetIcon();
+	void loadSetIcon();
 
-	void BuildMenu();
+	void buildMenu();
 
-	void BuildCheckBoxesLayout();
+	void buildCheckBoxesLayout();
 
-	void BuildAuthorLabel();
+	void buildAuthorLabel();
 
-	void BuildLicense();
+	void buildLicense();
 
-	void BuildFrame();
+	void buildFrame();
 }

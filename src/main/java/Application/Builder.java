@@ -33,8 +33,8 @@ import org.slf4j.LoggerFactory;
 import Const.FanucConstants;
 import Descriptions.Descriptions;
 
-public class Builder implements FanucConstants, ApplicationBuilder {
-	// konkretny budowniczy - implementacja
+public class Builder implements ApplicationBuilder, FanucConstants {
+	// specific builder - implementation
 
 	static Logger logger = LoggerFactory.getLogger(Builder.class);
 
@@ -42,7 +42,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 	public static File fileIn = null;
 
 	// Maven
-	public static String ReadInputFile() {
+	public static String readInputFile() {
 		logger.info("ReadInputFile method.");
 		File fileInputed = fileInPath.getSelectedFile();
 		String readedFile = "";
@@ -57,7 +57,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return readedFile;
 	}
 
-	public static List<String> CheckConfig(String fileToCheckConfig) {
+	public static List<String> checkConfig(String fileToCheckConfig) {
 		List<String> configListAll = new ArrayList<String>();
 		List<String> configListCorrect = new ArrayList<String>();
 
@@ -86,7 +86,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return wrongConfigs;
 	}
 
-	public static List<String> CheckSpeed(String fileToCheckSpeed) {
+	public static List<String> checkSpeed(String fileToCheckSpeed) {
 		List<String> speedListAll = new ArrayList<String>();
 		List<String> speedListCorrect = new ArrayList<String>();
 
@@ -123,7 +123,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return wrongSpeeds;
 	}
 
-	public static List<String> ChceckZone(String fileToCheckZone) {
+	public static List<String> chceckZone(String fileToCheckZone) {
 		List<String> zoneListAll = new ArrayList<String>();
 		List<String> zoneListCorrect = new ArrayList<String>();
 
@@ -165,18 +165,18 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return wrongZone;
 	}
 
-	public static String ReversePath(String pathToReverse) {
+	public static String reversePath(String pathToReverse) {
 		String reversedPath = null;
 
 		reversedPath = pathToReverse.replaceAll("(Y = +)", "$1-").replaceAll("(Y = +)--", "$1")
 				.replaceAll("(W = +)", "$1-").replaceAll("(W = +)--", "$1").replaceAll("(R = +)", "$1-")
 				.replaceAll("(R = +)--", "$1");
-		logger.info("Reversed succesfully.");
+		logger.info("Reversed method.");
 		return reversedPath;
 	}
 
 	// Maven
-	public static File SaveOutputFile(String fileToSave) {
+	public static File saveOutputFile(String fileToSave) {
 		String fileName = fileInPath.getSelectedFile().getName();
 		File saveFolder = new File(fileInPath.getCurrentDirectory(),
 				Descriptions.STRING_NEW_FOLDER_NAME.displayString());
@@ -193,7 +193,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return outFile;
 	}
 
-	public JCheckBox BuildConfigCheckBox() {
+	public JCheckBox buildConfigCheckBox() {
 		confiCheckBox.setBounds(10, 100, 250, 25);
 		confiCheckBox.setOpaque(false);
 		frame.add(confiCheckBox);
@@ -201,7 +201,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return confiCheckBox;
 	}
 
-	public JCheckBox BuildSpeedCheckBox() {
+	public JCheckBox buildSpeedCheckBox() {
 		speedCheckBox.setBounds(10, 125, 250, 25);
 		speedCheckBox.setOpaque(false);
 		frame.add(speedCheckBox);
@@ -209,7 +209,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return speedCheckBox;
 	}
 
-	public JCheckBox BuildZoneCheckBox() {
+	public JCheckBox buildZoneCheckBox() {
 		zoneCheckBox.setBounds(10, 150, 250, 25);
 		zoneCheckBox.setOpaque(false);
 		frame.add(zoneCheckBox);
@@ -218,7 +218,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		return zoneCheckBox;
 	}
 
-	public void BuildButtonFieldIn() {
+	public void buildButtonFieldIn() {
 
 		JButton buttonFileIn = new JButton(Descriptions.STRING_PATH_FILE_IN.displayString());
 		buttonFileIn.setBounds(10, 10, 150, 25);
@@ -241,7 +241,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 							JOptionPane.showMessageDialog(frame,
 									Descriptions.STRING_FILE_LOAD_SUCCESFULLY.displayString());
 							fileLoadedPath.setText(loadedFilePath);
-							pathToLoad = ReadInputFile();
+							pathToLoad = readInputFile();
 
 						} else {
 							JOptionPane.showMessageDialog(frame, Descriptions.STRING_WRONG_EXTENSION.displayString());
@@ -254,17 +254,13 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 				} else if (result == JFileChooser.CANCEL_OPTION) {
 					logger.error("No File selected.");
 				}
-
-				// String loadedFilePath = fileIn.getAbsolutePath();
-
-				// String loadedFilePath = selectedFileIn.getAbsolutePath();
 			}
 		});
 		frame.add(buttonFileIn);
 		logger.info("BuildButtonFieldIn");
 	}
 
-	public void BuilFieldLoadedPath() {
+	public void builFieldLoadedPath() {
 		fileLoadedPath.setToolTipText(Descriptions.STRING_FILELOADED_TOOL_TIP.displayString());
 		fileLoadedPath.setForeground(Color.BLACK);
 		fileLoadedPath.setBackground(Color.WHITE);
@@ -275,7 +271,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		logger.info("BuilFieldLoadedPath");
 	}
 
-	public void BuildButtonExecuteAndReverse() {
+	public void buildButtonExecuteAndReverse() {
 		JButton buttonExecuteAndReverse = new JButton(Descriptions.STRING_EXECUT_REVERSE.displayString());
 		buttonExecuteAndReverse.setBounds(10, 60, 150, 25);
 		buttonExecuteAndReverse.setToolTipText(Descriptions.STRING_EXECUT_REVERSE_TOOL_TIP.displayString());
@@ -284,28 +280,28 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 			buttonExecuteAndReverse.addActionListener(new ActionListener() {
 				@SuppressWarnings("static-access")
 				public void actionPerformed(ActionEvent e) {
-					String reversedPath = ReversePath(pathToLoad);
+					String reversedPath = reversePath(pathToLoad);
 					List<String> wrongConfigs = new ArrayList<String>();
 					List<String> wrongSpeeds = new ArrayList<String>();
 					List<String> wrongZones = new ArrayList<String>();
 
-					if (BuildConfigCheckBox().isSelected()) {
-						wrongConfigs = CheckConfig(reversedPath);
+					if (buildConfigCheckBox().isSelected()) {
+						wrongConfigs = checkConfig(reversedPath);
 						if (!wrongConfigs.isEmpty()) {
 							JOptionPane.showMessageDialog(frame,
 									Descriptions.STRING_MESSAGE_WRONG_CONG.displayString() + wrongConfigs);
 						}
 					}
 
-					if (BuildSpeedCheckBox().isSelected()) {
-						wrongSpeeds = CheckSpeed(reversedPath);
+					if (buildSpeedCheckBox().isSelected()) {
+						wrongSpeeds = checkSpeed(reversedPath);
 						if (!wrongSpeeds.isEmpty()) {
 							JOptionPane.showMessageDialog(frame,
 									Descriptions.STRING_MESSAGE_WRONG_CONG.displayString() + wrongSpeeds);
 						}
 					}
-					if (BuildZoneCheckBox().isSelected()) {
-						wrongZones = ChceckZone(reversedPath);
+					if (buildZoneCheckBox().isSelected()) {
+						wrongZones = chceckZone(reversedPath);
 						if (!wrongZones.isEmpty()) {
 							JOptionPane.showMessageDialog(frame,
 									Descriptions.STRING_MESSAGE_WRONG_ZONE.displayString() + wrongZones);
@@ -314,7 +310,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 
 					if (wrongConfigs.isEmpty() && wrongSpeeds.isEmpty() && wrongZones.isEmpty()
 							&& !reversedPath.isEmpty()) {
-						SaveOutputFile(reversedPath);
+						saveOutputFile(reversedPath);
 						fileSavedSuccesfully.showMessageDialog(frame,
 								Descriptions.STRING_FILE_SAVED_SUCCESFULLY.displayString());
 					}
@@ -328,8 +324,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		logger.info("BuildButtonExecuteAndReverse");
 	}
 
-	// IApplicationBuilderInterface methods
-	public void LoadSetImage() {
+	public void loadSetImage() {
 		BufferedImage image = null;
 		try {
 			image = ImageIO.read(getClass().getClassLoader().getResource(Descriptions.STRING_LOGO_JPG.displayString()));
@@ -348,14 +343,14 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		logger.info("LoadSetImage");
 	}
 
-	public void BuildButtonsLayout() {
-		BuildButtonFieldIn();
-		BuilFieldLoadedPath();
-		BuildButtonExecuteAndReverse();
+	public void buildButtonsLayout() {
+		buildButtonFieldIn();
+		builFieldLoadedPath();
+		buildButtonExecuteAndReverse();
 		logger.info("BuildButtonsLayout");
 	}
 
-	public void LoadSetIcon() {
+	public void loadSetIcon() {
 		BufferedImage icon = null;
 		try {
 			icon = ImageIO
@@ -369,7 +364,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		logger.info("LoadSetIcon");
 	}
 
-	public void BuildMenu() {
+	public void buildMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu = new JMenu(Descriptions.STRING_HELP.displayString());
 		menu.setBounds(0, 0, 25, 10);
@@ -386,14 +381,14 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		logger.info("BuildMenu");
 	}
 
-	public void BuildCheckBoxesLayout() {
-		BuildConfigCheckBox();
-		BuildSpeedCheckBox();
-		BuildZoneCheckBox();
+	public void buildCheckBoxesLayout() {
+		buildConfigCheckBox();
+		buildSpeedCheckBox();
+		buildZoneCheckBox();
 		logger.info("BuildCheckBoxesLayout");
 	}
 
-	public void BuildAuthorLabel() {
+	public void buildAuthorLabel() {
 		JLabel author = new JLabel(Descriptions.STRING_AUTHOR.displayString());
 		author.setSize(150, 50);
 		author.setBackground(Color.YELLOW);
@@ -402,7 +397,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		logger.info("BuildAuthorLabel");
 	}
 
-	public void BuildLicense() {
+	public void buildLicense() {
 		// January is 0 (y, m, d)
 		expireDate.set(2020, 7, 1);
 		final SimpleDateFormat formatData = new SimpleDateFormat(
@@ -417,7 +412,7 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		logger.info("BuildLicense");
 	}
 
-	public void BuildFrame() {
+	public void buildFrame() {
 		frame.setTitle(Descriptions.STRING_FRAME_TITLE.displayString());
 		frame.setSize(650, 650);
 		frame.setAlwaysOnTop(false);
@@ -428,4 +423,5 @@ public class Builder implements FanucConstants, ApplicationBuilder {
 		frame.setVisible(true);
 		logger.info("BuildFrame");
 	}
+
 }

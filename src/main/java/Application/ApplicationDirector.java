@@ -1,18 +1,17 @@
 package Application;
 
 public class ApplicationDirector {
-	// kierownik - logika inicjalizacji obiektu
+	// manager - object initialization logic
 	public void ConstructApplication(ApplicationBuilder builder) {
 
-		builder.LoadSetImage();
-		builder.BuildButtonsLayout();
-		builder.LoadSetIcon();
-		builder.BuildMenu();
-		builder.BuildCheckBoxesLayout();
-		builder.BuildAuthorLabel();
-		builder.BuildLicense();
-		builder.BuildFrame();
+		builder.loadSetImage();
+		builder.buildButtonsLayout();
+		builder.loadSetIcon();
+		builder.buildMenu();
+		builder.buildCheckBoxesLayout();
+		builder.buildAuthorLabel();
+		builder.buildLicense();
+		builder.buildFrame();
 
 	}
-
 }
