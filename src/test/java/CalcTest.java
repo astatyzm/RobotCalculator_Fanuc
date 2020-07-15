@@ -39,19 +39,16 @@ public class CalcTest {
 	}
 
 	@Test(expected = Exception.class)
-
 	public void TestReadInputFile() {
 		try {
 			String readedLSFile = IOUtils.toString(this.getClass().getResourceAsStream("testOK.LS"), "UTF-8");
 			String readFile = Builder.readInputFile();
 			assertNotNull(readFile);
 			Assert.fail();
-
 		} catch (IOException e) {
 			Assert.fail("Exception " + e);
 			e.printStackTrace();
 		}
-
 	}
 
 	@Test(expected = Exception.class)
@@ -60,5 +57,4 @@ public class CalcTest {
 		File savedFile = Builder.saveOutputFile(readedLSFile);
 		assertNotNull(savedFile);
 	}
-
 }
